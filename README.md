@@ -5,7 +5,7 @@
 These files contain the necessary to make the PRisme2, compatible with [Arduino IDE](http://arduino.cc/en/Main/Software).
 
 ## Bootloader
-The bootloader is an adaptation of [Optiboot](http://code.google.com/p/optiboot/): an STK500 compatible, under 512 bytes bootloader. The adaptation is straight forward only needing minor registry modifications and some new definitions for the ATmega8535. Files for the modified bootloader are available at Github.
+The bootloader is an adaptation of [Optiboot](http://code.google.com/p/optiboot/): an STK500 compatible, under 512 bytes bootloader. The adaptation is straight forward only needing minor registry modifications and some new definitions for the ATmega8535. Files for the [modified bootloader](https://github.com/Robopoly/prisme2-bootloader) are available at Github.
 
 ## Files
 To make a new board compatible with Arduino one must add board definitions in _/hardware/Prisme2/boards.txt_ file, containing  baud speed, fuse bits, microcontroller definition, bootloader...
