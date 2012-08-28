@@ -53,7 +53,7 @@ void setSpeed(int left, int right)
 		}
 		else
 		{
-			left = 1023*left/100;	
+			left = (long) 1023*left/100;	
 		}
 	}
 
@@ -61,7 +61,7 @@ void setSpeed(int left, int right)
 	{
 		// normal port operation, OC1B disconnected
 		TCCR1A &= ~(3 << COM1B0);
-		PORTD &= ~(1<<PD4);
+		PORTD &= ~(1 << PD4);
 	}
 	else
 	{
@@ -86,7 +86,7 @@ void setSpeed(int left, int right)
 		}
 		else
 		{
-			right = 1023*right/100;
+			right = (long) 1023*right/100;
 		}
 	}
 	
@@ -252,13 +252,13 @@ void setServo(unsigned char id, unsigned char angle)
 }
 
 // set servo line to logical 0 with compare
-/*ISR(TIMER2_COMP_vect)
+ISR(TIMER2_COMP_vect)
 {
 	if(servoAngle[servoId])
 	{
 		PORTB &= ~(1 << servoId);
 	}
-}*/
+}
 
 // set servo line to logical 1 with overflow
 ISR(TIMER2_OVF_vect)
