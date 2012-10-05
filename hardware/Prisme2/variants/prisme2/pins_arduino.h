@@ -35,7 +35,7 @@
 
 #define digitalPinHasPWM(p)         ((p) == 4 || (p) == 5 || (p) == 6 || (p) == 11)
 
-const static uint8_t SS   = 12;
+const static uint8_t SS   = 8;
 const static uint8_t MOSI = 13;
 const static uint8_t MISO = 14;
 const static uint8_t SCK  = 15;

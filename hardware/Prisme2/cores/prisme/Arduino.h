@@ -1,3 +1,4 @@
 // file inserted by default to all project files
 
-#include <avr/io.h>
+// user should include this file
+//#include <avr/io.h>

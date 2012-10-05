@@ -1,45 +1,5 @@
 ##############################################################
 
-prisme2r.name=PRisme2 8MHz at 115200 baud (Robopoly)
-prisme2r.upload.protocol=arduino
-prisme2r.upload.maximum_size=7680
-prisme2r.upload.speed=115200
-prisme2r.upload.disable_flushing=true
-
-prisme2r.bootloader.low_fuses=0xd4
-prisme2r.bootloader.high_fuses=0xdc
-prisme2r.bootloader.path=optiboot
-prisme2r.bootloader.file=optiboot_atmega8535_8MHz_115200.hex
-prisme2r.bootloader.unlock_bits=0xff
-prisme2r.bootloader.lock_bits=0xcf
-
-prisme2r.build.mcu=atmega8535
-prisme2r.build.f_cpu=8000000L
-prisme2r.build.core=prisme
-prisme2r.build.variant=standard
-
-##############################################################
-
-prisme2a.name=PRisme2 8MHz at 115200 baud
-prisme2a.upload.protocol=arduino
-prisme2a.upload.maximum_size=7680
-prisme2a.upload.speed=115200
-prisme2a.upload.disable_flushing=true
-
-prisme2a.bootloader.low_fuses=0xd4
-prisme2a.bootloader.high_fuses=0xdc
-prisme2a.bootloader.path=optiboot
-prisme2a.bootloader.file=optiboot_atmega8535_8MHz_115200.hex
-prisme2a.bootloader.unlock_bits=0x3f
-prisme2a.bootloader.lock_bits=0x0f
-
-prisme2a.build.mcu=atmega8535
-prisme2a.build.f_cpu=8000000L
-prisme2a.build.core=arduino:arduino
-prisme2a.build.variant=prisme2
-
-##############################################################
-
 prisme2b.name=PRisme2 8MHz at 9600 baud
 prisme2b.upload.protocol=arduino
 prisme2b.upload.maximum_size=7680
@@ -60,40 +20,40 @@ prisme2b.build.variant=prisme2
 
 ##############################################################
 
-prisme2c.name=PRisme2 8MHz at 38400 baud
-prisme2c.upload.protocol=arduino
-prisme2c.upload.maximum_size=7680
-prisme2c.upload.speed=38400
-prisme2c.upload.disable_flushing=true
+prisme2e.name=PRisme2 8MHz at 9600 baud (Expert Mode)
+prisme2e.upload.protocol=arduino
+prisme2e.upload.maximum_size=7680
+prisme2e.upload.speed=9600
+prisme2e.upload.disable_flushing=true
 
-prisme2c.bootloader.low_fuses=0xd4
-prisme2c.bootloader.high_fuses=0xdc
-prisme2c.bootloader.path=optiboot
-prisme2c.bootloader.file=optiboot_atmega8535_8MHz_38400.hex
-prisme2c.bootloader.unlock_bits=0x3f
-prisme2c.bootloader.lock_bits=0x0f
+prisme2e.bootloader.low_fuses=0xd4
+prisme2e.bootloader.high_fuses=0xdc
+prisme2e.bootloader.path=optiboot
+prisme2e.bootloader.file=optiboot_atmega8535_8MHz_9600.hex
+prisme2e.bootloader.unlock_bits=0x3f
+prisme2e.bootloader.lock_bits=0x0f
 
-prisme2c.build.mcu=atmega8535
-prisme2c.build.f_cpu=8000000L
-prisme2c.build.core=arduino:arduino
-prisme2c.build.variant=prisme2
+prisme2e.build.mcu=atmega8535
+prisme2e.build.f_cpu=8000000L
+prisme2e.build.core= prisme
+prisme2e.build.variant=prisme2
 
 ##############################################################
 
-prisme2d.name=PRisme2 8MHz (crystal) at 38400 baud
-prisme2d.upload.protocol=arduino
-prisme2d.upload.maximum_size=7680
-prisme2d.upload.speed=38400
-prisme2d.upload.disable_flushing=true
+prisme2a.name=PRisme2 8MHz at 115200 baud
+prisme2a.upload.protocol=arduino
+prisme2a.upload.maximum_size=7680
+prisme2a.upload.speed=115200
+prisme2a.upload.disable_flushing=true
 
-prisme2d.bootloader.low_fuses=0xca
-prisme2d.bootloader.high_fuses=0xdc
-prisme2d.bootloader.path=optiboot
-prisme2d.bootloader.file=optiboot_atmega8535_8MHz_ext_38400.hex
-prisme2d.bootloader.unlock_bits=0x3f
-prisme2d.bootloader.lock_bits=0x0f
+prisme2a.bootloader.low_fuses=0xd4
+prisme2a.bootloader.high_fuses=0xdc
+prisme2a.bootloader.path=optiboot
+prisme2a.bootloader.file=optiboot_atmega8535_8MHz_115200.hex
+prisme2a.bootloader.unlock_bits=0x3f
+prisme2a.bootloader.lock_bits=0x0f
 
-prisme2d.build.mcu=atmega8535
-prisme2d.build.f_cpu=8000000L
-prisme2d.build.core=arduino:arduino
-prisme2d.build.variant=prisme2
+prisme2a.build.mcu=atmega8535
+prisme2a.build.f_cpu=8000000L
+prisme2a.build.core=arduino:arduino
+prisme2a.build.variant=prisme2
