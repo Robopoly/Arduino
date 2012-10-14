@@ -1,9 +1,10 @@
 /***************************************************************************************
  *
- * Title:       Robopoly library v2.0
+ * Title:       Robopoly library v2.1
  * File:        robopoly.cpp
- * Date:        21.07.2012
- * Authors:     Christophe Winter, Thierry Barras, Karl Kangur
+ * Date:        14.10.2012
+ * Authors:     Christophe Winter, Thierry Barras
+ * Modified:    Karl Kangur
  * 
  * Description: This library is made for EPFL's robotics club members: Robopoly. It
  *              contains some specific functions for used modules (motors) and an agenda
