@@ -32,6 +32,8 @@
 // read digital port value
 #define digital_read(port, pin) (*(port_ddr(&port)) & (1 << pin))
 
+unsigned char analogReadPortA(unsigned char bit);
+
 void setSpeed(int left, int right);
 
 unsigned char setCallback(void (*newCallbackAddr)(void), unsigned int interval, unsigned char executionNumber);

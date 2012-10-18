@@ -16,6 +16,20 @@
 #include <avr/interrupt.h>
 #include "robopoly.h"
 
+// analog reading over 8 bits
+unsigned char analogReadPortA(unsigned char bit)
+{
+	unsigned char result;
+	DDRA &= ~(1<<bit);
+	ADCSRA = 0x87;
+	ADMUX =0x20+bit;
+	ADCSRA |= (1<<ADSC);
+	while((ADCSRA & (1<<ADSC))>>ADSC);
+	result = ADCH;
+	ADCSRA = 0;
+	return result;
+}
+
 // set motor speed for both wheels, uses timer1
 void setSpeed(int left, int right)
 {
