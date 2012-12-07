@@ -13,8 +13,12 @@
  ***************************************************************************************/
 
 #include <avr/io.h>
+#include <stdlib.h>
 #include <avr/interrupt.h>
 #include "robopoly.h"
+
+#define BAUD 9600
+#include <util/setbaud.h>
 
 // analog reading over 8 bits
 unsigned char analogReadPortA(unsigned char bit)
@@ -28,6 +32,53 @@ unsigned char analogReadPortA(unsigned char bit)
 	result = ADCH;
 	ADCSRA = 0;
 	return result;
+}
+
+// set up serial communication
+void serialSetup(void)
+{
+  // set up uart communication
+  UBRRH = UBRRH_VALUE;
+  UBRRL = UBRRL_VALUE;
+  UCSRA &= ~(1 << U2X);
+  UCSRB |= 0x18;
+}
+
+// send characters to serial
+void serialWrite(const char *text)
+{
+  for(unsigned char i = 0; text[i] != '\0'; i++)
+  {
+    // wait for empty buffer
+    while((UCSRA & (1 << UDRE)) == 0);
+    // set uart buffer value
+    UDR = (unsigned char)text[i];
+  }
+}
+
+// send plain numbers to serial, transform to characters first
+void serialPrint(int value)
+{
+  // minus sign, 5 characters of int and end of line \0 character: 7
+  char number[7];
+  itoa(value, number, 10); 
+  serialWrite(number);
+}
+
+// returns true if something is in the serial buffer
+unsigned char serialAvailable(void)
+{
+  if(UCSRA & (1 << RXC))
+  {
+    return 1;
+  }
+  return 0;
+}
+
+// read one character from the serial input buffer
+char serialRead(void)
+{
+  return UDR;
 }
 
 // set motor speed for both wheels, uses timer1

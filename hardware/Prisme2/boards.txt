@@ -1,6 +1,6 @@
 ##############################################################
 
-prisme2b.name=PRisme2 8MHz at 9600 baud
+prisme2b.name=PRisme2 8MHz at 9600 baud (Arduino)
 prisme2b.upload.protocol=arduino
 prisme2b.upload.maximum_size=7680
 prisme2b.upload.speed=9600
@@ -20,7 +20,7 @@ prisme2b.build.variant=prisme2
 
 ##############################################################
 
-prisme2e.name=PRisme2 8MHz at 9600 baud (Expert Mode)
+prisme2e.name=PRisme2 8MHz at 9600 baud (Robopoly)
 prisme2e.upload.protocol=arduino
 prisme2e.upload.maximum_size=7680
 prisme2e.upload.speed=9600

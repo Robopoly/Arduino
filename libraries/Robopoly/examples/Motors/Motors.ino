@@ -1,16 +1,21 @@
-// motor speed function is defined inside Robopoly's library (uses timer1)
+/***************************************************************************************
+ *
+ * Title:       Motors
+ * Description: Use the motors to move your robot. The setSpeed() function uses timer1.
+ *              setSpeed takes some time to have an effect, when calling setSpeed too
+ *              often (for a line follower for example) a delay must follow the call
+ *              (about 100ms sould do it).
+ *
+ ***************************************************************************************/
 #include <robopoly.h>
 
-void setup()
+int main()
 {
-  
-}
-
-void loop()
-{
-  // set left and right motor speeds from 0 to 100
-  setSpeed(20, -40);
-  delay(500);
-  setSpeed(-20, 40);
-  delay(500);
+  while(1)
+  {
+    setSpeed(20, 20);
+    waitms(500);
+    setSpeed(-20, -20);
+    waitms(500);
+  }
 }

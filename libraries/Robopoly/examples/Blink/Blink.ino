@@ -1,20 +1,29 @@
+/***************************************************************************************
+ *
+ * Title:       Blink
+ * Description: Turn the onboard LED on and off every 500 milliseconds
+ *
+ ***************************************************************************************/
+#include <avr/io.h>
+#include <robopoly.h>
+
 // the LED is on pin 2 of port C
-#define LED PC(2)
+#define LED_PORT PORTC
+#define LED_PIN  2
 
-void setup()
+int main()
 {
-  // set pin as output
-  pinMode(LED, OUTPUT);
-}
-
-void loop()
-{
-  // turn LED on
-  digitalWrite(LED, HIGH);
-  // in milliseconds
-  delay(500);
-  // turn LED off
-  digitalWrite(LED, LOW);
-  delay(500);
+  pin_mode(LED_PORT, LED_PIN, 1);
+  while(1)
+  {
+    // turn LED on
+    digital_write(LED_PORT, LED_PIN, 1);
+    // in milliseconds
+    waitms(500);
+    // turn LED off
+    digital_write(LED_PORT, LED_PIN, 0);
+    waitms(500);
+  }
+  return 0;
 }
 

@@ -1,21 +1,32 @@
-// read an analog value from port A
+/***************************************************************************************
+ *
+ * Title:       AnalogIR
+ * Description: Read an analog value from port A, example based on an IR sensor.
+ * Note:        Only works on analog pins (port A).
+ *              analogReadPortA(pin): 8-bit value (0: ostacle, 255: no obstacle)
+ *
+ ***************************************************************************************/
+#include <robopoly.h>
 
-// connect IR sensor to pin 0 of port A
-#define IR_SENSOR PA(0)
+#define ANALOG_PIN 0
 
-void setup()
+// stores values from 0 to 255
+unsigned char ir_value;
+
+int main()
 {
-  // send sensor values back to serial
-  Serial.begin(9600);
+  // send data to computer via serial, 9600 baud by default
+  serialSetup();
+  
+  while(1)
+  {
+    // read analog value from PORTA pin 0
+    ir_value = analogReadPortA(ANALOG_PIN);
+    serialPrint(ir_value);
+    // send a new line character
+    serialWrite("\n");
+    // wait 500ms between measurements
+    waitms(500);
+  }
 }
 
-void loop()
-{
-  // analogRead only works on analog pins (port A)
-  // analogRead returns values on 10 bytes: between 0 and 1024
-  // 0 means an obstacle reflects IR light (light)
-  // 1024 means there are no obstalces (dark)
-  Serial.println(analogRead(IR_SENSOR));
-  // wait 500ms between measurements
-  delay(500);
-}

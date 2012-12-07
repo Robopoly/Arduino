@@ -20,6 +20,11 @@
 #define C PORTC
 #define D PORTD
 
+// shortcut macros for delay functions
+#include <util/delay.h>
+#define waitms(value) _delay_ms(value)
+#define waitus(value) _delay_us(value)
+
 // port ddr addresses are one below the port
 #define port_ddr(port) (port-1)
 // port pin addresses are two below the port
@@ -34,11 +39,25 @@
 
 unsigned char analogReadPortA(unsigned char bit);
 
-void setSpeed(int left, int right);
+#ifndef NOSERIAL
+void serialSetup(void);
+void serialWrite(const char *text);
+void serialPrint(int value);
+unsigned char serialAvailable(void);
+char serialRead(void);
+#endif
 
+#ifndef NOMOTORS
+void setSpeed(int left, int right);
+#endif
+
+#ifndef NOCALLBACK
 unsigned char setCallback(void (*newCallbackAddr)(void), unsigned int interval, unsigned char executionNumber);
 void clearCallback(unsigned char callbackId);
+#endif
 
+#ifndef NOSERVO
 void setServo(unsigned char id, unsigned char angle);
+#endif
 
 #endif

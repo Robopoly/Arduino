@@ -1,16 +1,23 @@
-// blink LED in assembly
+/***************************************************************************************
+ *
+ * Title:       BlinkASM
+ * Description: Blink the onboard LED, written in assembly code.
+ *
+ ***************************************************************************************/
 
 // delay function for 500ms
 asm(
   "_delay:              \n\t"
-  "LDI    r26, 255      \n\t"
-  "LDI    r27, 12       \n\t"
-  "LDI    r28, 50       \n\t"
+  "LDI    r26, 85       \n\t"
+  "LDI    r27, 64       \n\t"
+  "LDI    r28, 255      \n\t"
   "_count:              \n\t"
   "DEC    r26           \n\t"
   "BRNE   _count        \n\t"
+  "LDI    r26, 85       \n\t"
   "DEC    r27           \n\t"
   "BRNE   _count        \n\t"
+  "LDI    r27, 64       \n\t"
   "DEC    r28           \n\t"
   "brne   _count        \n\t"
   "RET                  \n\t"
