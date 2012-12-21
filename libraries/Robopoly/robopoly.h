@@ -41,8 +41,9 @@ unsigned char analogReadPortA(unsigned char bit);
 
 #ifndef NOSERIAL
 void serialSetup(void);
-void serialWrite(const char *text);
-void serialPrint(int value);
+void serialWrite(const char*);
+void serialPrint(int);
+void serialRaw(unsigned char);
 unsigned char serialAvailable(void);
 char serialRead(void);
 #endif

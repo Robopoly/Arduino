@@ -65,6 +65,13 @@ void serialPrint(int value)
   serialWrite(number);
 }
 
+// send raw value to serial
+void serialRaw(unsigned char value)
+{
+  while((UCSRA & (1 << UDRE)) == 0);
+  UDR = value;
+}
+
 // returns true if something is in the serial buffer
 unsigned char serialAvailable(void)
 {
@@ -78,7 +85,13 @@ unsigned char serialAvailable(void)
 // read one character from the serial input buffer
 char serialRead(void)
 {
-  return UDR;
+  // each UDR reading clears the input buffer
+  char serialValue = UDR;
+  // new line character not returned
+  if(serialValue != '\n')
+  {
+    return serialValue;
+  }
 }
 
 // set motor speed for both wheels, uses timer1

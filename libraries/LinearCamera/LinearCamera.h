@@ -27,6 +27,7 @@ void lcam_reset(void);
 void lcam_setup(void);
 void lcam_startintegration(void);
 void lcam_endintegration(void);
-void lcam_integrate(int microseconds);
+void lcam_integrate(unsigned int microseconds);
+unsigned char* lcam_getdata(void);
 void lcam_read(void);
 unsigned char lcam_getpic(void);

@@ -117,7 +117,7 @@ void lcam_endintegration(void)
 }
 
 // shortcut for starting and ending integration
-void lcam_integrate(int microseconds)
+void lcam_integrate(unsigned int microseconds)
 {
   lcam_startintegration();
   _delay_us(microseconds);
@@ -151,6 +151,11 @@ void lcam_read(void)
     // pulse the pixel stop bit (SDOUT = 1)
     lcam_pulse();
   }
+}
+
+unsigned char* lcam_getdata()
+{
+  return lcam_buffer;
 }
 
 // Divide the 100 first pixels into 25 4-byte averages and return the highest average index
