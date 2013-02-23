@@ -16,11 +16,12 @@ int main()
   
   while(1)
   {
+    // check for data in the input buffer
     if(serialAvailable())
     {
-      // read a single character to data
+      // read a single character to data variable
       data = serialRead();
-      // send data to computer
+      // send data back to computer
       serialWrite(&data);
     }
   }
