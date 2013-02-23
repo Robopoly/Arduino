@@ -24,11 +24,16 @@
 unsigned char analogReadPortA(unsigned char bit)
 {
 	unsigned char result;
+    // set port as input
 	DDRA &= ~(1<<bit);
-	ADCSRA = 0x87;
-	ADMUX =0x20+bit;
-	ADCSRA |= (1<<ADSC);
-	while((ADCSRA & (1<<ADSC))>>ADSC);
+    // enable ADC and set prescaler to 128
+	ADCSRA = (1 << ADEN) | (1 << ADPS2) | (1 << ADPS1) | (1 << ADPS0);
+    // ADC Left Adjust Result and set channel
+	ADMUX = (1 << ADLAR) + bit;
+    // start conversion
+	ADCSRA |= (1 << ADSC);
+    // wait for conversion to finish
+	while(ADCSRA & (1 << ADSC));
 	result = ADCH;
 	ADCSRA = 0;
 	return result;
