@@ -21,6 +21,9 @@ On different systems it is done differently: as of Arduino 1.0.1 on Windows one 
 
 On Mac the folders must be copied in the users documents under _/Arduino_ directory, so under _[user]/Documents/Arduino/_.
 
+## Documentation
+The function and usage documentation is maintained on [Robopoly website](http://robopoly.epfl.ch/prisme/librairie) (in french).
+
 ## Bootloader uploading
 To upload the bootloader with Arduino IDE one must use an ISP programmer, choose the correct board in the Tools menu, choose the correct ISP programmer in the same menu and finally click on the _Upload bootloader_ still in the same menu.
 
