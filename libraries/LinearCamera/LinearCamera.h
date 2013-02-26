@@ -8,6 +8,7 @@
  *              Eric Seuret.
  * 
  * Datasheet:   http://www.ams.com/eng/content/download/250205/975793/142526
+ * http://www.eureca.de/datasheets/01.xx.xxxx/01.06.xxxx/01.06.0015/TSL3301.pdf
  *
  ***************************************************************************************/
 #include <avr/io.h>
