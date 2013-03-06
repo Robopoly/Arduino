@@ -35,7 +35,7 @@
 // write bit on port
 #define digital_write(port, pin, value) (port = (port & (~(1 << pin))) | (value << pin))
 // read digital port value
-#define digital_read(port, pin) (*(port_ddr(&port)) & (1 << pin))
+#define digital_read(port, pin) (*(port_pin(&port)) & (1 << pin))
 
 unsigned char analogReadPortA(unsigned char bit);
 
