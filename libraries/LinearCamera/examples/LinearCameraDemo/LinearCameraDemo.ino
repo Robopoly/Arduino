@@ -16,10 +16,14 @@ int main()
   serialSetup();
   lcam_setup();
   
+  // camera needs a reset after 200ms
+  waitms(200);
+  lcam_reset();
+  
   while(1)
   {
-    // gather light (integrate) for 400 microseconds
-    lcam_integrate(400);
+    // gather light (integrate) for 10 microseconds
+    lcam_integrate(10);
     // load pixel values to lcam_buffer byte array
     lcam_read();
     // get the highest 4-pixel area (between 0 and 24)

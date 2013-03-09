@@ -162,14 +162,27 @@ unsigned char* lcam_getdata()
 unsigned char lcam_getpic(void)
 {
   unsigned char i, value, highest = 0, max_region = 0;
+  unsigned int average;
   for(i = 0; i < 25; i++)
   {
     // take 4-byte average and divide by 4 (shift to right by 2)
-    if((value = ((lcam_buffer[i*4] + lcam_buffer[i*4+1] + lcam_buffer[i*4+2] + lcam_buffer[i*4+3]) >> 2)) > highest)
+    value = ((lcam_buffer[i*4] + lcam_buffer[i*4+1] + lcam_buffer[i*4+2] + lcam_buffer[i*4+3]) >> 2);
+    if(value > highest)
     {
       highest = value;
       max_region = i;
     }
+    average += value;
   }
-  return max_region;
+  
+  average /= 25;
+  
+  if(highest > average + 30)
+  {
+    return max_region;
+  }
+  else
+  {
+    return 0;
+  }
 }
