@@ -162,7 +162,7 @@ unsigned char* lcam_getdata()
 unsigned char lcam_getpic(void)
 {
   unsigned char i, value, highest = 0, max_region = 0;
-  unsigned int average;
+  unsigned int average = 0;
   for(i = 0; i < 25; i++)
   {
     // take 4-byte average and divide by 4 (shift to right by 2)
