@@ -98,7 +98,7 @@ char serialRead(void)
     return serialValue;
   }
   
-  retunr NULL;
+  return NULL;
 }
 
 // set motor speed for both wheels, uses timer1
