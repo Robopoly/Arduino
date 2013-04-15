@@ -69,7 +69,8 @@ void clearCallback(unsigned char callbackId);
 void setServo(unsigned char id, unsigned char angle);
 #endif
 
-void configure_INT0(unsigned char, void (* function) (void));  //PIND2
-void configure_INT1(unsigned char, void (* function) (void));  //PIND3
+
+void configure_INT0(unsigned char etat, void (* function) (void));  //PIND2
+void configure_INT1(unsigned char etat, void (* function) (void));  //PIND3
 
 #endif
